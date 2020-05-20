@@ -1,0 +1,92 @@
+.wrapper {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.matrix {
+    display: flex;
+    flex-direction: column;
+}
+
+.row, .rowAverage {
+    display: flex;
+}
+
+.rowAverage {
+    margin-left: 52px;
+}
+
+.cell, .cellSum, .cellAverage {
+    width: 70px;
+    height: 40px;
+    margin: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.cell {
+    align-items: flex-end;
+}
+
+.cellCover {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cellValue {
+    width: 70px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.redColor {
+    color: red;
+}
+
+.cellDelete {
+    width: 40px;
+    height: 40px;
+    margin: 6px;
+
+    border-radius: 20px;
+    background-color: red;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.cell:hover,
+.cellSum:hover,
+.cellAverage:hover,
+.cellDelete:hover{
+    cursor: pointer;
+}
+
+.cellSum {
+    background-color: blue;
+    color: white;
+}
+
+.cellAverage {
+    background-color: green;
+    color: white;
+}
+
+.similar {
+    background-color: deepskyblue;
+}
