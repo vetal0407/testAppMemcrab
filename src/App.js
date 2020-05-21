@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 import {
     changeMatrix,
+    changeX,
     incrementValue,
     findSimilarValues,
     restSimilarValues,
@@ -19,15 +20,15 @@ import styles from "./App.module.css";
 function App({
      n,
      m,
+     x,
      matrix,
-     rowOptions,
-     columnOptions,
      sumRows,
      averageColumns,
      similarValues,
      matrixPercent,
 
      changeMatrix,
+     changeX,
      incrementValue,
      findSimilarValues,
      restSimilarValues,
@@ -46,9 +47,9 @@ function App({
       <SelectDimensions
           n={n}
           m={m}
-          rowOptions={rowOptions}
-          columnOptions={columnOptions}
+          x={x}
 
+          changeX={changeX}
           changeRows={(n) => changeMatrix(matrix, n, m)}
           changeColumns={(m) => changeMatrix(matrix, n, m)}
       />
@@ -61,8 +62,8 @@ function App({
           similarValues={similarValues}
           matrixPercent={matrixPercent}
 
-          incrementValue={(i, j) => incrementValue(matrix, n, m, i, j)}
-          findSimilarValues={(i, j) => findSimilarValues(matrix, n, m, i, j)}
+          incrementValue={(i, j) => incrementValue(matrix, n, m, x, i, j)}
+          findSimilarValues={(i, j) => findSimilarValues(matrix, n, m, x, i, j)}
           restSimilarValues={restSimilarValues}
           calculateMatrixPercent={calculateMatrixPercent}
           restMatrixPercent={restMatrixPercent}
@@ -75,9 +76,8 @@ function App({
 const mapStateToProps = state => ({
   n: state.matrix.n,
   m: state.matrix.m,
+  x: state.matrix.x,
   matrix: state.matrix.matrix,
-  rowOptions: state.matrix.rowOptions,
-  columnOptions: state.matrix.columnOptions,
   sumRows: state.matrix.sumRows,
   averageColumns: state.matrix.averageColumns,
   similarValues: state.matrix.similarValues,
@@ -85,6 +85,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = {
     changeMatrix,
+    changeX,
     incrementValue,
     findSimilarValues,
     restSimilarValues,

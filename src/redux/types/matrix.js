@@ -1,5 +1,7 @@
 export const CHANGE_MATRIX = 'CHANGE_MATRIX';
 
+export const CHANGE_X = 'CHANGE_X';
+
 export const INCREMENT_VALUE = 'INCREMENT_VALUE';
 
 export const FIND_SIMILAR_VALUES = 'FIND_SIMILAR_VALUES';

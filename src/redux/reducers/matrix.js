@@ -1,5 +1,6 @@
 import {
     CHANGE_MATRIX,
+    CHANGE_X,
     INCREMENT_VALUE,
     FIND_SIMILAR_VALUES,
     RESET_SIMILAR_VALUES,
@@ -9,8 +10,9 @@ import {
 } from "../types/matrix";
 
 const initialState = {
-    n: 4,
-    m: 4,
+    n: 10,
+    m: 10,
+    x: 4,
     rowOptions: [1, 2, 3, 4, 5, 6],
     columnOptions: [1, 2, 3, 4, 5, 6],
     sumRows: [],
@@ -31,6 +33,11 @@ const matrixReducer = (state = initialState, action) => {
                 sumRows: action.sumRows,
                 averageColumns: action.averageColumns,
                 matrixPercent: action.matrixPercent
+            };
+        case CHANGE_X:
+            return {
+                ...state,
+                x: action.x,
             };
         case INCREMENT_VALUE:
             return {

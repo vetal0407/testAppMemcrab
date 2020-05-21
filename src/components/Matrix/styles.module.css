@@ -1,17 +1,23 @@
 .wrapper {
-    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
-
+    margin: auto;
     display: flex;
     flex-grow: 1;
-    justify-content: center;
+    //justify-content: flex-start;
     align-items: center;
+}
+
+.wrapper::before, .test::after {
+    content: '';
+    margin: auto;
 }
 
 .matrix {
     display: flex;
     flex-direction: column;
 }
+
 
 .row, .rowAverage {
     display: flex;
@@ -64,6 +70,10 @@
     width: 40px;
     height: 40px;
     margin: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     border-radius: 20px;
     background-color: red;

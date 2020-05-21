@@ -12,9 +12,13 @@ export const generateAmounts = (matrix, n, m) => {
 };
 
 export const calculateSumRows = (matrix) => {
-    return matrix.map(row => {
-        return row.reduce((previous, current) => previous + current);
-    });
+    try {
+        return matrix.map(row => {
+            return row.reduce((previous, current) => previous + current);
+        });
+    }catch (e) {
+        return [];
+    }
 };
 
 export const calculateAverageColumns = (matrix, n, m) => {
@@ -29,30 +33,30 @@ export const calculateAverageColumns = (matrix, n, m) => {
     return average;
 };
 
-export const findSimilarValues = (matrix, n, m, iRow, jColumn) => {
+export const findSimilarValues = (matrix, n, m, x, iRow, jColumn) => {
     let differenceMatrix = [];
     for (let i = 0; i < n; i++){
-        differenceMatrix[i] = [];
         for (let j = 0; j < m; j++){
-            if(i === iRow && j === jColumn) differenceMatrix[i][j] = Infinity;
-            else differenceMatrix[i][j] = Math.abs(matrix[iRow][jColumn] - matrix[i][j]);
+            if(i === iRow && j === jColumn) continue;
+            else differenceMatrix.push({
+                value: Math.abs(matrix[iRow][jColumn] - matrix[i][j]),
+                i,
+                j
+            });
         }
     }
 
-
-    let similarValues = [];
-    let minValue = differenceMatrix[0][0];
-    for (let i = 0; i < n; i++){
-        for (let j = 0; j < m; j++){
-            if(differenceMatrix[i][j] < minValue){
-                minValue = differenceMatrix[i][j];
-                similarValues = [];
-                similarValues.push({i,j});
-            }else if(differenceMatrix[i][j] === minValue) similarValues.push({i,j});
+    differenceMatrix.sort((a, b) => {
+        if (a.value > b.value) {
+            return 1;
         }
-    }
+        if (a.value < b.value) {
+            return -1;
+        }
+        return 0;
+    });
 
-    return similarValues;
+    return differenceMatrix.slice(0, x);
 };
 
 export const calculateMatrixPercent = (matrix, iRow, rowSum) => {

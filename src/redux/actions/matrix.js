@@ -1,5 +1,6 @@
 import {
     CHANGE_MATRIX,
+    CHANGE_X,
     INCREMENT_VALUE,
     FIND_SIMILAR_VALUES,
     RESET_SIMILAR_VALUES,
@@ -27,7 +28,14 @@ export const changeMatrix = (matrix, n, m) => {
     }
 };
 
-export const incrementValue = (matrix, n, m, i, j) => {
+export const changeX = (x) => {
+    return{
+        type: CHANGE_X,
+        x
+    }
+};
+
+export const incrementValue = (matrix, n, m, x, i, j) => {
     const newMatrix = matrix.map((row, indexRow) => {
         return row.map((value, indexColumn) => {
             if(i === indexRow && j === indexColumn) return value + 1;
@@ -42,13 +50,13 @@ export const incrementValue = (matrix, n, m, i, j) => {
         matrix: newMatrix,
         sumRows,
         averageColumns,
-        similarValues: utils.findSimilarValues(newMatrix, n, m, i, j),
+        similarValues: utils.findSimilarValues(newMatrix, n, m, x, i, j),
     }
 };
 
-export const findSimilarValues = (matrix, n, m, i, j) => ({
+export const findSimilarValues = (matrix, n, m, x, i, j) => ({
     type: FIND_SIMILAR_VALUES,
-    similarValues: utils.findSimilarValues(matrix, n, m, i, j),
+    similarValues: utils.findSimilarValues(matrix, n, m, x, i, j),
 });
 
 export const restSimilarValues = () => ({
