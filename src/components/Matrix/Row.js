@@ -23,6 +23,7 @@ const Row = ({
 }) => {
     const renderCell = (cell, index) => (
         <Cell
+            key={index + Math.random()}
             cell={cell}
             iRow={iRow}
             iColumn={index}
