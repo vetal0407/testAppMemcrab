@@ -6,9 +6,9 @@ import {
     changeX,
     incrementValue,
     findSimilarValues,
-    restSimilarValues,
+    resetSimilarValues,
     calculateMatrixPercent,
-    restMatrixPercent,
+    resetMatrixPercent,
     deleteRow
 } from "./redux/actions/matrix";
 
@@ -31,9 +31,9 @@ function App({
      changeX,
      incrementValue,
      findSimilarValues,
-     restSimilarValues,
+     resetSimilarValues,
      calculateMatrixPercent,
-     restMatrixPercent,
+     resetMatrixPercent,
      deleteRow
 }) {
 
@@ -64,9 +64,9 @@ function App({
 
           incrementValue={(i, j) => incrementValue(matrix, n, m, x, i, j)}
           findSimilarValues={(i, j) => findSimilarValues(matrix, n, m, x, i, j)}
-          restSimilarValues={restSimilarValues}
+          resetSimilarValues={resetSimilarValues}
           calculateMatrixPercent={calculateMatrixPercent}
-          restMatrixPercent={restMatrixPercent}
+          resetMatrixPercent={resetMatrixPercent}
           deleteRow={(i) => deleteRow(matrix, n, m, i)}
       />
     </div>
@@ -88,9 +88,9 @@ const mapDispatchToProps = {
     changeX,
     incrementValue,
     findSimilarValues,
-    restSimilarValues,
+    resetSimilarValues,
     calculateMatrixPercent,
-    restMatrixPercent,
+    resetMatrixPercent,
     deleteRow
 };
 

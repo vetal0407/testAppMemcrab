@@ -16,9 +16,9 @@ const Matrix = ({
 
     incrementValue,
     findSimilarValues,
-    restSimilarValues,
+    resetSimilarValues,
     calculateMatrixPercent,
-    restMatrixPercent,
+    resetMatrixPercent,
     deleteRow
 }) => {
     const renderRow = (row, index) => (
@@ -33,9 +33,9 @@ const Matrix = ({
 
             incrementValue={j => incrementValue(index, j)}
             findSimilarValues={j => findSimilarValues(index, j)}
-            restSimilarValues={restSimilarValues}
+            resetSimilarValues={resetSimilarValues}
             calculateMatrixPercent={(iRow, rowSum) => calculateMatrixPercent(matrix, iRow, rowSum)}
-            restMatrixPercent={restMatrixPercent}
+            resetMatrixPercent={resetMatrixPercent}
             deleteRow={() => deleteRow(index)}
         />
     );

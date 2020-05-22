@@ -59,7 +59,7 @@ export const findSimilarValues = (matrix, n, m, x, i, j) => ({
     similarValues: utils.findSimilarValues(matrix, n, m, x, i, j),
 });
 
-export const restSimilarValues = () => ({
+export const resetSimilarValues = () => ({
     type: RESET_SIMILAR_VALUES
 });
 
@@ -68,7 +68,7 @@ export const calculateMatrixPercent = (matrix, iRow, rowSum) => ({
     matrixPercent: utils.calculateMatrixPercent(matrix, iRow, rowSum)
 });
 
-export const restMatrixPercent = () => ({
+export const resetMatrixPercent = () => ({
     type: RESET_MATRIX_PERCENT
 });
 

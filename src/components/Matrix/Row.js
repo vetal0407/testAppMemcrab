@@ -16,9 +16,9 @@ const Row = ({
 
      incrementValue,
      findSimilarValues,
-     restSimilarValues,
+     resetSimilarValues,
      calculateMatrixPercent,
-     restMatrixPercent,
+     resetMatrixPercent,
      deleteRow
 }) => {
     const renderCell = (cell, index) => (
@@ -31,7 +31,7 @@ const Row = ({
 
             incrementValue={() => incrementValue(index)}
             findSimilarValues={() => findSimilarValues(index)}
-            restSimilarValues={restSimilarValues}
+            resetSimilarValues={resetSimilarValues}
         />
     );
 
@@ -52,7 +52,7 @@ const Row = ({
                             <CellSum
                                 cell={sumRow}
                                 calculateMatrixPercent={() => calculateMatrixPercent(iRow, sumRow)}
-                                restMatrixPercent={restMatrixPercent}
+                                resetMatrixPercent={resetMatrixPercent}
                             />
                         </div>
                     );

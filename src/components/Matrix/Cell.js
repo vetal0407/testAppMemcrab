@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 import style from "./styles.module.css";
 
-const Cell = ({
+export default React.memo(function Cell({
     cell,
     iRow,
     iColumn,
@@ -12,8 +12,8 @@ const Cell = ({
 
     incrementValue,
     findSimilarValues,
-    restSimilarValues
-}) => {
+    resetSimilarValues
+}) {
     //define to show amount or percent
     const value = matrixPercent[iRow][iColumn] ? `${matrixPercent[iRow][iColumn]}%` : cell;
 
@@ -43,16 +43,14 @@ const Cell = ({
     return (
         <div
             className={classesCell}
-            onClick={() => incrementValue()}
-            onMouseEnter={() => findSimilarValues()}
-            onMouseLeave={() => restSimilarValues()}
+            onClick={incrementValue}
+            onMouseEnter={findSimilarValues}
+            onMouseLeave={resetSimilarValues}
         >
             <div className={style.cellCover} style={stylesCover}>
                 <span className={style.cellValue}>{value}</span>
             </div>
         </div>
     );
-};
-
-export default Cell;
+});
 

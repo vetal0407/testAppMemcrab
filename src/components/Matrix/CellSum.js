@@ -5,13 +5,13 @@ import styles from "./styles.module.css";
 const CellSum = ({
     cell,
     calculateMatrixPercent,
-    restMatrixPercent
+    resetMatrixPercent
 }) => {
     return (
         <p
             className={styles.cellSum}
-            onMouseEnter={() => calculateMatrixPercent()}
-            onMouseLeave={() => restMatrixPercent()}
+            onMouseEnter={calculateMatrixPercent}
+            onMouseLeave={resetMatrixPercent}
         >{cell}</p>
     );
 };

@@ -6,7 +6,7 @@ const CellDelete = ({deleteRow}) => {
     return (
         <div
             className={styles.cellDelete}
-            onClick={() => deleteRow()}
+            onClick={deleteRow}
         >-</div>
     );
 };
